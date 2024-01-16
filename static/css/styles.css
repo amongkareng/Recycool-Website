@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.border {
+    border: solid;
+}
+
+/* Header */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #01504b;
+    color: white;
+    padding: 20px 80px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a span {
+    font-size: x-large;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    height: max-content;
+    margin: auto 0px;
+}
+
+ul li a {
+    margin-left: 20px;
+    color: white;
+}
+
+/* Main */
+
+/* First Section */
+.first_section {
+    background: linear-gradient(to right, #e0fbfc, #2FAF7E);
+    display: flex;
+    justify-content: center;
+    gap: 14vw;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+h1,
+h2 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: xx-large;
+    color: #2FAF7E;
+}
+
+h2 {
+    font-size: x-large;
+    color: #1F1F1F;
+}
+
+p {
+    font-weight: 300;
+    padding-top: 2px;
+    color: #303030;
+}
+
+.welcome_section {
+    height: max-content;
+    margin: auto 0;
+}
+
+.welcome_image {
+    width: 400px;
+    height: auto;
+}
+
+/* Second Section */
+
+.second_section {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: max-content;
+    margin: 60px auto;
+    padding-right: 40px;
+}
+
+.second_section h1 {
+    text-align: center;
+}
+
+.line_about {
+    border: #2FAF7E solid 2px;
+    border-radius: 50px;
+    width: 100px;
+    align-self: center;
+}
+
+.line_about_middle {
+    border: #2FAF7E solid 1.5px;
+    border-radius: 50px;
+    width: max-content;
+    height: 315px;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.line_about_border {
+    border-bottom: solid 2px #2FAF7E;
+    border-right: solid 2px #2FAF7E;
+    border-left: solid 2px #2FAF7E;
+    border-radius: 30px;
+    width: 100%;
+    height: 315px;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.second_section p {
+    text-align: justify;
+    margin-top: 14px;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+}
+
+.recycool_img {
+    width: max-content;
+    margin-left: 100px;
+}
+
+.p_about {
+    width: 500px;
+    margin-left: 150px;
+}
+
+.p_about p {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.p_about p span {
+    color: #01504b;
+    font-weight: bold;
+}
+
+/* Third Section */
+
+.third_section {
+    display: flex;
+    width: max-content;
+    margin: 60px auto;
+    gap: 16vw;
+}
+
+.try_recycool {
+    height: max-content;
+    margin: auto;
+}
+
+.try_recycool a {
+    background-color: #2FAF7E;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: transparent;
+    color: white;
+    font-size: medium;
+    width: max-content;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Fourth Section */
+
+.fourth_section {
+    margin: 60px auto;
+    text-align: center;
+}
+
+.slider-container {
+    width: max-content;
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 260px;
+    margin: 0 auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.active {
+    opacity: 1;
+}
+
+.slider-container button {
+    background-color: white;
+    border: white;
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-10%);
+    z-index: 1; /* Ensure the buttons are above the images */
+}
+
+.slider-container .prev-button {
+    transform: scaleX(-1);
+    left: 0;
+}
+
+.slider-container .next-button {
+    right: 0;
+    transform-origin: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+}

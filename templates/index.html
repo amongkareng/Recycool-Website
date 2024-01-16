@@ -3,34 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container main-container">
-        <div class="row">
-            <div class="col-md-10 form-group">
-                <label for="fileInput">File input</label>
-                <input type="file" class="form-control" onchange="loadImg()" id="fileInput" aria-describedby="fileHelp">
+
+    <header>
+        <nav>
+            <a href="#"><span>Recycool</span></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Classification</a></li>
+                <li><a href="#">Recomendation</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- First Section -->
+
+        <section class="first_section">
+            <div class="welcome_section">
+                <h1>Welcome To Recycool</h1>
+                <h2>Where Green Minds Connect!</h2>
+                <p>Transform your waste into something valuable. Share your <br> creations on Recycool to inspire
+                    others.</p>
             </div>
-            <div class="col-md-2 btn-submit-container">
-                <button type="button" class="btn btn-primary" id="upload">Process Image</button>
-                <!-- Add the new button for the GET request -->
-                <button type="button" class="btn btn-success" id="getResult">Get Result</button>
+            <figure><img src="{{ url_for('static', filename='img/Image_Login_Page.svg') }}" alt="" class="welcome_image"></figure>
+        </section>
+
+        <!-- Second Section -->
+
+        <section class="second_section">
+            <h1>About Us</h1>
+            <div class="line_about"></div>
+            <div class="line_about_middle"></div>
+            <div class="line_about_border"></div>
+            <article class="">
+                <figure class="recycool_img"><img src="{{ url_for('static', filename='img/Ellipse_5.svg') }}" alt=""></figure>
+                <div class="p_about">
+                    <p>In a world grappling with handling significant amounts of solid waste, a considerable portion
+                        lacks
+                        proper environmentally friendly disposal methods. An estimated <span>45,000 tons</span> of
+                        plastic are dumped into
+                        the world's oceans yearly, highlighting the urgent need to address this global environmental
+                        crisis.
+                        This global challenge underscores the pressing need for inventive solutions. <span>Here,
+                            Recycool steps in
+                            with a mission to encourage sustainable waste management practices.</span> Recycool aligns
+                        with the Sustainable
+                        Development Goal on Responsible Consumption and Production, contributing to a more
+                        environmentally
+                        aware world for everyone.</p>
+                    <p><span>Recycool is an intuitive mobile application crafted to promote sustainable waste
+                            management. Our goal is
+                            to empower users to seamlessly embrace eco-friendly practices, actively participate in waste
+                            reduction,
+                            and make a meaningful, positive impact on the environment.</span> Through Recycool, users
+                        can effortlessly
+                        adopt eco-friendly habits.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- Third Section -->
+        
+        <section class="third_section">
+            <div class="try_recycool">
+                <h1>Recycool</h1>
+                <h2>Snap, Sort & Recycle!</h2>
+                <p>Instant eco-actions and recommendations for a greener planet.
+                    <br>Try our app and make a difference, one snap at a time!
+                </p>
+                <a class="border">Start Now</a>
             </div>
-        </div>
-        <div>
-            <img src="" id="imagePreview" class="image-preview">
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+            <figure><img src="{{ url_for('static', filename='img/Recycle_Icon.svg') }}" alt=""></figure>
+        </section>
+
+        <!-- Fourth Section -->
+
+        <section class="fourth_section">
+            <h1>Image Classification</h1>
+            <div class="slider-container">
+                <button class="prev-button" onclick="prevImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
+                <div class="slider">
+                    <img src="{{ url_for('static', filename='img/Group_1.svg') }}" alt="" class="slide active">
+                    <img src="{{ url_for('static', filename='img/Group_2.svg') }}" alt="" class="slide inactive">
+                    <img src="{{ url_for('static', filename='img/Group_3.svg') }}" alt="" class="slide inactive">
+                    <img src="{{ url_for('static', filename='img/Group_4.svg') }}" alt="" class="slide inactive">
+                    <img src="{{ url_for('static', filename='img/Group_5.svg') }}" alt="" class="slide inactive">
+                </div>
+                <button class="next-button" onclick="nextImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+
+    <!-- Script JS -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>
