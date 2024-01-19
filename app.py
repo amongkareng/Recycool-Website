@@ -32,6 +32,11 @@ def is_valid_uuid(val):
 def index():
     return render_template('index.html')
 
+
+@app.route('/reccomendation')
+def process():
+    return render_template('reccomendation.html')
+
 # Building API
 @app.route('/recycool', methods=['GET', 'POST'])
 def recycool():
@@ -101,6 +106,10 @@ def recycool():
             classification_result.append(classification_data)
 
             response = {
+                'ID': unique_id,
+                'classification': classification,
+                'accuracy': float(accuracy),
+                'insertedAt': timestamp,
                 'status': 'success',
                 'message': 'Image upload successfully'
             }

@@ -51,61 +51,81 @@ function loadImg() {
     }
 }
 
-// Upload image using ajax
+// Load image using axios
 $('#upload').click(function () {
-    // Create form data
     var formData = new FormData();
-    // Add file to form data
     formData.append('file', $('#fileInput')[0].files[0]);
-    $.ajax({
-        url: '/recycool', // Flask API Endpoint
-        type: 'POST', // Request type
-        data: formData, // Request data
-        contentType: false,
-        processData: false,
-        success: function (data) {
-            // On request success, handle the response
-            console.log(data);
 
-            // Check if the status is success
-            if (data.status === 'success') {
-                // Image upload successful, display appropriate message or perform actions
-                console.log('Image upload successful');
-            } else {
-                // Handle errors or other responses
-                console.error('Image upload failed:', data.message);
-            }
-        },
-        error: function (xhr, status, error) {
-            // On request failure, handle the error
-            console.error('Error uploading image:', error);
+    axios.post('/recycool', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
         }
+    })
+    .then(function (response) {
+        // On request success, handle the response
+        console.log(response.data);
+
+        if (response.data.status === 'success') {
+            console.log('Image upload successful');
+        } else {
+            console.error('Image upload failed:', response.data.message);
+        }
+    })
+    .catch(function (error) {
+        // On request failure, handle the error
+        console.error('Error uploading image:', error);
     });
 });
-
-
 
 // Event listener for the Get Result button
 $('#getResult').click(function () {
-    $.ajax({
-        url: '/recycool', // Flask API Endpoint
-        type: 'GET', // Request type
-        success: function (data) {
-            // On request success, handle the response
-            console.log(data);
+    axios.get('/recycool')
+    .then(function (response) {
+        // On request success, handle the response
+        console.log(response.data);
 
-            // Check if the status is success
-            if (data.status === 'Success') {
-                // Process the data or update UI based on the GET response
-                console.log('GET request successful');
-            } else {
-                // Handle errors or other responses
-                console.error('GET request failed:', data.message);
-            }
-        },
-        error: function (xhr, status, error) {
-            // On request failure, handle the error
-            console.error('Error in GET request:', error);
+        if (response.data.status === 'Success') {
+            console.log('GET request successful');
+            // Display the result beside the image
+            displayResult(response.data.data);
+        } else {
+            console.error('GET request failed:', response.data.message);
         }
+    })
+    .catch(function (error) {
+        // On request failure, handle the error
+        console.error('Error in GET request:', error);
     });
 });
+
+// Function to display the result
+function displayResult(resultData) {
+    // Clear the result container
+    $('#resultContainer').empty();
+
+    // Log the resultData to inspect its structure
+    console.log(resultData);
+
+    // Ensure that resultData is an array
+    if (Array.isArray(resultData) && resultData.length > 0) {
+        // Iterate over each result in the array
+        resultData.forEach(function (result) {
+            // Ensure that each result has classification and accuracy properties
+            if (result && result.classification && result.accuracy) {
+                // Extract classification and accuracy from the result object
+                var classification = result.classification;
+                var accuracy = result.accuracy;
+
+                // Create a new <div> element to display the classification and accuracy
+                var resultDiv = $('<div>').text('Classification: ' + classification + ', Accuracy: ' + accuracy);
+
+                // Append the resultDiv to the resultContainer
+                $('#resultContainer').append(resultDiv);
+            } else {
+                console.error('Invalid result structure:', result);
+            }
+        });
+    } else {
+        console.log('No results available.');
+    }
+}

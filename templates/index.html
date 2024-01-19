@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
     <title>Document</title>
 </head>
 
@@ -16,7 +19,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Classification</a></li>
-                <li><a href="#">Recomendation</a></li>
+                <li><a href="reccomendation">Recomendation</a></li>
                 <li><a href="#">About Us</a></li>
             </ul>
         </nav>
@@ -80,7 +83,25 @@
                 <p>Instant eco-actions and recommendations for a greener planet.
                     <br>Try our app and make a difference, one snap at a time!
                 </p>
-                <a class="border">Start Now</a>
+                <div class="container main-container">
+                    <div class="row">
+                        <div class="col-md-10 form-group">
+                            <label for="fileInput">File input</label>
+                            <input type="file" class="form-control" onchange="loadImg()" id="fileInput" aria-describedby="fileHelp">
+                        </div>
+                        <div class="col-md-2 btn-submit-container">
+                            <button type="button" class="btn btn-primary" id="upload">Process Image</button>
+                            <!-- Add the new button for the GET request -->
+                            <button type="button" class="btn btn-success" id="getResult">Get Result</button>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" id="imagePreview" class="image-preview">
+                    </div>
+                    <div id="resultContainer"></div>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
             </div>
             <figure class="third_section_image"><img src="{{ url_for('static', filename='img/Recycle_Icon_1.svg') }}" alt=""></figure>
         </section>
@@ -109,7 +130,9 @@
     </footer>
 
     <!-- Script JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
