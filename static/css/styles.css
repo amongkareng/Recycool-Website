@@ -11,6 +11,11 @@
     border: solid;
 }
 
+.flex_row {
+    display: flex;
+    gap: 14px;
+}
+
 /* Header */
 
 nav {
@@ -181,7 +186,6 @@ article {
     display: flex;
     justify-content: center;
     gap: 14vw;
-    padding: 60px auto;
 }
 
 .try_recycool {
@@ -277,55 +281,55 @@ article {
 
 
 
-
 /* Style for the buttons */
 .btn-primary,
 .btn-success {
-  margin-top: 10px; /* Add some space between the buttons and the file input */
-}
+  margin-top: 10px; }
 
 .btn-primary {
-  background-color: #007bff; /* Blue color for the "Process Image" button */
+  background-color: #007bff; 
   border-color: #007bff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
 
 .btn-success {
-  background-color: #28a745; /* Green color for the "Get Result" button */
+  background-color: #28a745; 
   border-color: #28a745;
 }
 
 .btn-success:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838; 
 }
 
 /* Style for the image preview */
 .image-preview {
   max-width: 50%;
   height: auto;
-  margin-top: 20px; /* Add some space between the image and the buttons */
+  margin-top: 20px; 
 }
 
 /* Style for the container */
 .container.main-container {
-  max-width: 800px; /* Adjust the maximum width of the container */
-  margin: 0 auto; /* Center the container */
+  max-width: 800px; 
+  margin: 0 auto; 
 }
 
 /* Style for the row */
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Space evenly between the form and buttons */
+  justify-content: space-between;
 }
 
 /* Style for the file input */
 #fileInput {
-  margin-bottom: 10px; /* Add some space below the file input */
+  margin-bottom: 10px; 
 }
+
+
 
 
 #resultContainer {
@@ -335,9 +339,6 @@ article {
     border: 1px solid #dee2e6; /* Add a border */
     border-radius: 5px; /* Add rounded corners */
   }
-
-
-
 
 
 
