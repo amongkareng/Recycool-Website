@@ -2,6 +2,10 @@ const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 let currentIndex = 0;
 
+const modal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const modalText = document.getElementById('modalText');
+
 function showImage(index) {
     slider.style.transform = `translateX(-${index * 100}%)`;
 
@@ -14,6 +18,16 @@ function showImage(index) {
             slide.classList.add('inactive');
         }
     });
+}
+
+function openModal(imageUrl, description) {
+    modal.style.display = 'block';
+    modalImage.src = imageUrl;
+    modalText.textContent = description;
+}
+
+function closeModal() {
+    modal.style.display = 'none';
 }
 
 function nextImage() {

@@ -50,8 +50,6 @@ function loadImg() {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-// Load image using axios
 $('#upload').click(function () {
     var formData = new FormData();
     formData.append('file', $('#fileInput')[0].files[0]);
@@ -67,8 +65,11 @@ $('#upload').click(function () {
 
         if (response.data.status === 'success') {
             console.log('Image upload successful');
+            // Additional logic if needed
         } else {
             console.error('Image upload failed:', response.data.message);
+            // Display the error message on your HTML page
+            $('#errorMessage').text(response.data.message).show();
         }
     })
     .catch(function (error) {

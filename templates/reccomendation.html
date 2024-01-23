@@ -35,20 +35,41 @@
             <figure><img src="{{ url_for('static', filename='img/img_reccomendation.jpeg') }}" alt="" class="welcome_image"></figure>
         </section>
 
-        <section class="fourth_section">
-            <h1>Recycling Reccomendation</h1>
-            <div class="slider-container">
-                <button class="prev-button" onclick="prevImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
-                <div class="slider">
-                    <img src="{{ url_for('static', filename='img/Rectangle_14.svg') }}" alt="" class="slide active">
-                    <img src="{{ url_for('static', filename='img/Rectangle_15.svg') }}" alt="" class="slide inactive">
-                    <img src="{{ url_for('static', filename='img/Rectangle_16.svg') }}" alt="" class="slide inactive">
-                    <img src="{{ url_for('static', filename='img/Group_4.svg') }}" alt="" class="slide inactive">
-                    <img src="{{ url_for('static', filename='img/Group_5.svg') }}" alt="" class="slide inactive">
-                </div>
-                <button class="next-button" onclick="nextImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
-            </div>
-        </section>
+
+
+
+
+
+
+
+<!-- Fourth Section - Recycling Recommendation -->
+<section class="fourth_section">
+    <h1>Recycling Recommendation</h1>
+    <div class="slider-container">
+        <button class="prev-button" onclick="prevImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
+        <div class="slider">
+            <!-- Update each img tag in your slider with an onclick attribute -->
+            <img src="{{ url_for('static', filename='img/Rectangle_14.svg') }}" alt="" class="slide active" onclick="openModal('{{ url_for('static', filename='img/Rectangle_14.svg') }}',  'Vas Bunga dari Botol Kaca')">
+            <img src="{{ url_for('static', filename='img/Rectangle_15.svg') }}" alt="" class="slide inactive" onclick="openModal('{{ url_for('static', filename='img/Rectangle_15.svg') }}', 'Lampu dari Botol Kaca')">
+            <img src="{{ url_for('static', filename='img/Rectangle_16.svg') }}" alt="" class="slide inactive" onclick="openModal('{{ url_for('static', filename='img/Rectangle_16.svg') }}', 'Terrarium dari Botol Kaca')">
+            <img src="{{ url_for('static', filename='img/bottle-1.svg') }}" alt="" class="slide inactive" onclick="openModal('{{ url_for('static', filename='img/bottle-1.svg') }}', 'Boneka dari Plastik')">
+            <img src="{{ url_for('static', filename='img/cardboard-1.svg') }}" alt="" class="slide inactive" onclick="openModal('{{ url_for('static', filename='img/cardboard-1.svg') }}', 'Gantungan Kunci dari Kardus')">
+        </div>
+        <button class="next-button" onclick="nextImage()"><img src="{{ url_for('static', filename='img/forward.svg') }}" alt=""></button>
+    </div>
+</section>
+
+
+
+        <!-- Add this div at the end of your body tag -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content">
+    <p id="modalText">tes123</p>
+    </div>
+  
+
+
     </main>
 
 
